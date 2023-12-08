@@ -1,10 +1,22 @@
-import React from 'react';
+import Note from "./components/Note";
+import NewNote from "./components/NewNote";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Filter from "./components/Filter";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <NewNote/>
+        </Col>
+        <Col md={4}>
+          <Filter/>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
