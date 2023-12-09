@@ -16,6 +16,12 @@ const addNote = (notes: Note[], text: string): Note[] => [
 const removeNote = (notes: Note[], id: number): Note[] =>
   notes.filter((note) => note.id !== id);
 
+const editNote = (notes: Note[], id: number, text: string): Note[] =>
+  notes.map((note) => ({
+    ...note,
+    text: note.id === id ? text : note.text,
+  }));
+
 class NoteStore {
   notes: Note[] = [];
   newNote: string = "";
@@ -30,6 +36,13 @@ class NoteStore {
 
   removeNote(id: number) {
     this.notes = removeNote(this.notes, id);
+  }
+
+  editNote(id: number, text: string) {
+    this.notes = editNote(this.notes, id, text);
+  }
+  getNotes() {
+    return this.notes;
   }
 }
 
